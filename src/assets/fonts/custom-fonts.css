@@ -1,0 +1,11 @@
+@font-face {
+  font-family: '1FTV-HF-Gesco-id0oy5';
+  src: url('./1FTV-HF-Gesco-id0oy5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --heading: '1FTV-HF-Gesco-id0oy5', sans-serif;
+  --sans: '1FTV-HF-Gesco-id0oy5', sans-serif;
+}

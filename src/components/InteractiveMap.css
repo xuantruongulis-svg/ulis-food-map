@@ -1,0 +1,304 @@
+#interactive-map {
+  position: relative;
+  background-image: url('/map-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Parallax effect */
+  padding: 100px 0;
+}
+
+#interactive-map::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.92);
+  /* Overlay to make map content pop */
+  z-index: 1;
+}
+
+#interactive-map .container {
+  position: relative;
+  z-index: 2;
+}
+
+.map-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: white;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: #f8fafc;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Minimalist Map Elements */
+.map-elements-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.map-grass {
+  position: absolute;
+  background-color: #dcfce7;
+  border-radius: 24px;
+}
+
+.map-road {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+}
+
+.map-building {
+  position: absolute;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.b-orange {
+  background-color: #ffedd5;
+  border: 2px solid #fed7aa;
+}
+
+.b-purple {
+  background-color: #f3e8ff;
+  border: 2px solid #e9d5ff;
+}
+
+.b-gray {
+  background-color: #e2e8f0;
+  border: 2px solid #cbd5e1;
+}
+
+/* Dashed lines for roads */
+.road-dashed-v {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%);
+  background-size: 100% 20px;
+  transform: translateX(-50%);
+}
+
+.road-dashed-h {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #cbd5e1 50%, transparent 50%);
+  background-size: 20px 100%;
+  transform: translateY(-50%);
+}
+
+/* Nhãn tên đường */
+.map-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Cây xanh trang trí */
+.map-tree {
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 3;
+  animation: treeSway 4s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.map-tree:nth-child(odd) {
+  animation-delay: -2s;
+}
+
+@keyframes treeSway {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.pin-icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pin-icon {
+  color: #ff3b30;
+  /* Vibrant red for map pins */
+  fill: #ff3b30;
+  /* Fill it nicely */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 2;
+}
+
+.pin-pulse {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 59, 48, 0.4);
+  border-radius: 50%;
+  bottom: -4px;
+  z-index: 1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.map-pin:hover .pin-icon-wrapper {
+  transform: scale(1.2) translateY(-5px);
+}
+
+.map-pin:hover .pin-icon {
+  fill: var(--primary);
+  color: var(--primary);
+}
+
+.map-pin:hover .pin-pulse {
+  background-color: rgba(249, 115, 22, 0.4);
+}
+
+/* Tooltip Styles */
+.pin-tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.95);
+  background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: max-content;
+  max-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 20;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  /* Make sure tooltip doesn't interfere with hover */
+}
+
+/* Tooltip Arrow */
+.pin-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.map-pin:hover .pin-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.pin-tooltip h4 {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  color: var(--text-h);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.tooltip-type {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.tooltip-price {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+  background: rgba(249, 115, 22, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .map-wrapper {
+    height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-wrapper {
+    height: 400px;
+  }
+}

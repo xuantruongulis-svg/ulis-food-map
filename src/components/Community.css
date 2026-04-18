@@ -1,0 +1,161 @@
+/* ======= GÓC CỘNG ĐỒNG (SIMPLIFIED) ======= */
+
+.community-flex-container {
+  display: flex;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Bên trái: Ảnh */
+.community-image-side {
+  flex: 1;
+  position: relative;
+  min-height: 400px;
+}
+
+.poll-side-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay-text {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: white;
+  z-index: 2;
+}
+
+.image-overlay-text h4 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.image-overlay-text p {
+  font-size: 16px;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.community-image-side::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+}
+
+/* Bên phải: Poll */
+.community-poll-side {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-icon-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card-icon-header h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.poll-desc {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Voting Bars */
+.vote-container {
+  width: 100%;
+}
+
+.vote-bar-wrapper {
+  margin-bottom: 20px;
+}
+
+.vote-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.place-name {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.place-percent {
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.vote-bar-bg {
+  height: 12px;
+  background: var(--bg-secondary);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.vote-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), #fb923c);
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fill-secondary {
+  background: linear-gradient(to right, var(--secondary), #818cf8);
+}
+
+.mt-6 {
+  margin-top: 24px;
+}
+
+.poll-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.icon-primary {
+  color: var(--primary);
+  width: 32px;
+  height: 32px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .community-flex-container {
+    flex-direction: column;
+  }
+  
+  .community-image-side {
+    min-height: 300px;
+  }
+  
+  .community-poll-side {
+    padding: 30px;
+  }
+}
