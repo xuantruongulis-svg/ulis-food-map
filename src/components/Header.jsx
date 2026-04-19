@@ -18,6 +18,7 @@ const Header = () => {
     { name: 'Trang chủ', href: '#home' },
     { name: 'Hôm nay ăn gì', href: '#features' },
     { name: 'Cộng đồng', href: '#community' },
+    { name: 'Đánh giá', href: '#feedback-form' },
     { name: 'Về chúng tôi', href: '#about' },
   ];
 

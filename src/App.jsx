@@ -7,6 +7,7 @@ import Services from './components/Services';
 import Community from './components/Community';
 import About from './components/About';
 import Footer from './components/Footer';
+import FeedbackAndForm from './components/FeedbackAndForm';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Services />
         <InteractiveMap />
         <Community />
+        <FeedbackAndForm />
         <About />
       </main>
       <Footer />
