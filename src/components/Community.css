@@ -1,7 +1,8 @@
 /* ======= GÓC CỘNG ĐỒNG (SIMPLIFIED) ======= */
 
 .community-flex-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.08fr);
   background: white;
   border-radius: 32px;
   overflow: hidden;
@@ -13,9 +14,8 @@
 
 /* Bên trái: Ảnh */
 .community-image-side {
-  flex: 1;
   position: relative;
-  min-height: 400px;
+  min-height: 300px;
 }
 
 .poll-side-img {
@@ -57,8 +57,7 @@
 
 /* Bên phải: Poll */
 .community-poll-side {
-  flex: 1;
-  padding: 50px;
+  padding: 24px 26px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,20 +67,20 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .card-icon-header h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   margin: 0;
 }
 
 .poll-desc {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text);
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
 /* Voting Bars */
@@ -148,14 +147,14 @@
 /* Responsive */
 @media (max-width: 900px) {
   .community-flex-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   
   .community-image-side {
-    min-height: 300px;
+    min-height: 220px;
   }
   
   .community-poll-side {
-    padding: 30px;
+    padding: 24px;
   }
 }

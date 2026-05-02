@@ -14,9 +14,9 @@ const TodaySpecial = () => {
     <section id="today-special" className="section today-special-bg">
       <div className="container">
         <div className="today-header-glass animate-fade-up">
-          <h2 className="section-title">Hôm Nay Ăn Gì?</h2>
+          <h2 className="section-title">Hình Ảnh Món Ăn Thực Tế</h2>
           <p className="section-subtitle">
-            Khám phá những món ăn quen thuộc, đậm đà bản sắc sinh viên Ngoại Ngữ.
+            Bộ sưu tập hình ảnh liên quan trực tiếp đến sản phẩm, giúp người xem hình dung rõ hơn các món ăn và trải nghiệm ẩm thực quanh ULIS.
           </p>
         </div>
 

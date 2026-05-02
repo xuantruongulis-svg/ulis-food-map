@@ -25,12 +25,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  --header-offset: 96px;
+  --section-padding-top: clamp(28px, 4vw, 42px);
+  --section-padding-bottom: clamp(36px, 5vw, 52px);
 }
 
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  min-width: 320px;
 }
 
 * {
@@ -48,22 +52,34 @@ a {
   text-decoration: none;
 }
 
+select {
+  appearance: none;
+}
+
+main {
+  overflow: clip;
+}
+
+section[id] {
+  scroll-margin-top: var(--header-offset);
+}
+
 /* Utilities */
 .container {
-  max-width: 1200px;
+  width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .section {
-  padding: 80px 0;
+  position: relative;
+  padding: var(--section-padding-top) 0 var(--section-padding-bottom);
 }
 
 .section-title {
   text-align: center;
-  font-size: 36px;
+  font-size: clamp(30px, 4vw, 38px);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -71,12 +87,49 @@ a {
 
 .section-subtitle {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text);
-  margin-bottom: 48px;
-  max-width: 600px;
+  line-height: 1.65;
+  margin-bottom: 12px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    display: block;
+    padding-top: var(--section-padding-top);
+  }
+
+  .hero-split {
+    min-height: calc(100svh - var(--header-offset));
+    display: flex;
+    align-items: center;
+  }
+
+  .section > .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 28px 0 40px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .container {
+    width: min(100% - 32px, 1180px);
+  }
 }
 
 .btn {
@@ -115,6 +168,14 @@ a {
 .btn-outline:hover {
   background: var(--bg-secondary);
   transform: translateY(-2px);
+}
+
+.w-full {
+  width: 100%;
+}
+
+.mt-4 {
+  margin-top: 16px;
 }
 
 /* Animations */

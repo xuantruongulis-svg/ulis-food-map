@@ -9,7 +9,7 @@ const About = () => {
           <div className="about-content animate-fade-up">
             <h2 className="section-title text-left">Về Chúng Tôi</h2>
             <p className="about-intro">
-              ULIS Food Map không chỉ là một dự án môn học, mà là tâm huyết của chúng tôi dành cho cộng đồng sinh viên Đại học Ngoại ngữ.
+              ULIS Food Map là landing page giới thiệu sản phẩm bản đồ ẩm thực dành cho sinh viên Đại học Ngoại ngữ, được xây dựng để giải quyết nhu cầu tìm quán nhanh, rõ giá và dễ tiếp cận.
             </p>
 
             <div className="about-features">
@@ -19,7 +19,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4>Sứ Mệnh</h4>
-                  <p>Trở thành cuốn cẩm nang ẩm thực hữu ích giúp sinh viên dễ dàng làm quen với môi trường mới, bớt sự bỡ ngỡ khi tìm kiếm quán ăn ngon, rẻ quanh khu Xuân Thủy - Phạm Văn Đồng.</p>
+                  <p>Trở thành cẩm nang ẩm thực trực quan giúp sinh viên dễ làm quen với môi trường mới và tìm quán ăn ngon, hợp túi tiền quanh khu Xuân Thủy - Phạm Văn Đồng.</p>
                 </div>
               </div>
 
@@ -29,7 +29,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4>Mục Tiêu Kết Nối</h4>
-                  <p>Giúp người mua (sinh viên) và người bán (các hộ kinh doanh gần trường) có thể chủ động tìm đến nhau một cách dễ dàng và minh bạch nhất.</p>
+                  <p>Kết nối sinh viên với các quán ăn gần trường bằng thông tin rõ ràng, hình ảnh thực tế và trải nghiệm được mô tả trực quan trên cùng một trang.</p>
                 </div>
               </div>
 

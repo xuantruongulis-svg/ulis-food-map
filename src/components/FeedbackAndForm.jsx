@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Send, MapPin } from 'lucide-react';
+import { Star, Send, MapPin, CircleCheck } from 'lucide-react';
 import './FeedbackAndForm.css';
 
 const reviews = [
@@ -13,14 +13,14 @@ const reviews = [
 ];
 
 const FeedbackAndForm = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', activity: '', message: '' });
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Auto-play reviews every 1 second
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-    }, 1000); // 1 giây nhảy 1 lần
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -30,21 +30,19 @@ const FeedbackAndForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ liên hệ lại sớm nhất!');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitted(true);
+    setFormData({ name: '', email: '', activity: '', message: '' });
   };
 
   return (
     <section id="feedback-form" className="section feedback-section">
       <div className="container">
         <div className="ff-grid">
-          {/* Cột Testimonials */}
           <div className="testimonials-col animate-fade-up">
-            <h2 className="section-title text-left">Góc Đánh Giá</h2>
+            <h2 className="section-title text-left">Đánh Giá Từ Người Dùng</h2>
             <p className="section-subtitle text-left" style={{ marginInline: 0 }}>
-              Những chia sẻ chân thực từ các ULISers đã trải nghiệm bản đồ ẩm thực của chúng mình.
+              Khu vực phản hồi này cho thấy sản phẩm đã có nhận xét và cảm nhận từ những người đã trải nghiệm quán ăn hoặc sử dụng nội dung gợi ý trên trang.
             </p>
-            {/* Slider Container */}
             <div className="slider-container">
               <div 
                 className="slider-track" 
@@ -77,12 +75,19 @@ const FeedbackAndForm = () => {
             </div>
           </div>
 
-          {/* Cột Form */}
           <div className="form-col animate-fade-up delay-1">
             <div className="form-wrapper">
-              <h3 className="form-title">Tham Gia Cùng Chúng Tôi</h3>
-              <p className="form-desc">Bạn có quán ruột muốn giới thiệu? Hay muốn nhận thông báo về các địa điểm mới? Để lại thông tin nhé!</p>
-              
+              <h3 className="form-title">Form Đăng Ký Tham Gia Hoạt Động</h3>
+              <p className="form-desc">
+                Người dùng có thể đăng ký tham gia đóng góp dữ liệu quán ăn, nhận thông báo địa điểm mới hoặc gửi đề xuất cải thiện cho ULIS Food Map.
+              </p>
+
+              <div className="registration-points">
+                <span>Nhận thông tin cập nhật quán mới</span>
+                <span>Đề xuất quán ăn yêu thích</span>
+                <span>Tham gia cộng tác nội dung</span>
+              </div>
+
               <form onSubmit={handleSubmit} className="ff-form">
                 <div className="form-group">
                   <label htmlFor="name">Họ và tên</label>
@@ -109,6 +114,21 @@ const FeedbackAndForm = () => {
                   />
                 </div>
                 <div className="form-group">
+                  <label htmlFor="activity">Hoạt động muốn tham gia</label>
+                  <select
+                    id="activity"
+                    name="activity"
+                    value={formData.activity}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Chọn một hoạt động</option>
+                    <option value="contribute">Đóng góp địa điểm quán ăn</option>
+                    <option value="updates">Nhận thông báo quán mới</option>
+                    <option value="collaborator">Trở thành cộng tác viên nội dung</option>
+                  </select>
+                </div>
+                <div className="form-group">
                   <label htmlFor="message">Lời nhắn / Đề xuất quán</label>
                   <textarea
                     id="message"
@@ -125,6 +145,13 @@ const FeedbackAndForm = () => {
                   <Send size={18} />
                 </button>
               </form>
+
+              {isSubmitted && (
+                <div className="form-success" role="status">
+                  <CircleCheck size={18} />
+                  <span>Thông tin đăng ký đã được ghi nhận để trình bày trên landing page mẫu.</span>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" id="footer-contact">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
@@ -15,6 +15,7 @@ const Footer = () => {
             <p className="footer-desc mt-4">
               Giải quyết trăn trở "Hôm nay ăn gì?" của sinh viên. Bản đồ ẩm thực đầy đủ và chi tiết nhất dành riêng cho ULISers.
             </p>
+            <p className="footer-tagline">Khẩu hiệu: Mở bản đồ là biết ăn gì, ở đâu, giá bao nhiêu.</p>
           </div>
 
           <div className="footer-contact">

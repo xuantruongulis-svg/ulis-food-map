@@ -4,8 +4,6 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* Parallax effect */
-  padding: 100px 0;
 }
 
 #interactive-map::before {
@@ -29,7 +27,7 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
   flex-wrap: wrap;
 }
 
@@ -47,7 +45,7 @@
 .map-wrapper {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: clamp(360px, 48vw, 460px);
   background-color: #f8fafc;
   overflow: hidden;
   border-radius: 20px;
@@ -292,13 +290,17 @@
 }
 
 @media (max-width: 768px) {
+  #interactive-map {
+    background-attachment: scroll;
+  }
+
   .map-wrapper {
-    height: 500px;
+    height: 390px;
   }
 }
 
 @media (max-width: 480px) {
   .map-wrapper {
-    height: 400px;
+    height: 320px;
   }
 }

@@ -1,6 +1,8 @@
 #today-special {
-  padding: 80px 0 60px;
   position: relative;
+  min-height: calc(100vh - var(--header-offset, 96px));
+  display: flex;
+  align-items: center;
 }
 
 #today-special.today-special-bg {
@@ -22,17 +24,22 @@
   position: relative;
   z-index: 1;
   text-align: center; /* Để căn giữa khối chữ */
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .today-header-glass {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 32px 40px;
-  border-radius: 30px;
-  margin: 0 auto 40px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  margin: 0 auto 16px;
   display: inline-block;
-  max-width: 700px;
+  max-width: 720px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05),
               inset 0 0 0 1px rgba(255,255,255,0.5);
 }
@@ -50,7 +57,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 10px 0 40px 0;
+  padding: 4px 0 2px;
 }
 
 .special-marquee-track {
@@ -67,7 +74,8 @@
 .special-marquee-group {
   display: flex;
   gap: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @keyframes specialMarquee {
@@ -76,12 +84,12 @@
 }
 
 .special-item {
-  width: 280px;
-  border-radius: 24px;
+  width: clamp(168px, 16vw, 204px);
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
   background-color: var(--bg);
 }
 
@@ -103,13 +111,17 @@
 
 /* Responsive adjustments for marquee */
 @media (max-width: 768px) {
+  #today-special.today-special-bg {
+    background-attachment: scroll;
+  }
+
   .special-item {
-    width: 220px;
+    width: 172px;
   }
 }
 
 @media (max-width: 480px) {
   .special-item {
-    width: 180px;
+    width: 148px;
   }
 }

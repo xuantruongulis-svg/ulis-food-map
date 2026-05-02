@@ -20,9 +20,9 @@ const Community = () => {
   return (
     <section id="community" className="section bg-white">
       <div className="container">
-        <h2 className="section-title">Góc Cộng Đồng</h2>
+        <h2 className="section-title">Góc Cộng Đồng Sinh Viên</h2>
         <p className="section-subtitle">
-          Cùng bình chọn cho khu vực ẩm thực yêu thích nhất của sinh viên ULIS.
+          Khu vực tương tác bổ sung để người dùng bình chọn và thể hiện mức độ quan tâm tới các điểm ăn uống quanh trường.
         </p>
 
         <div className="community-flex-container animate-fade-up">

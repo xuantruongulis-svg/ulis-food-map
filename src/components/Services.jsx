@@ -78,9 +78,9 @@ const Services = () => {
   return (
     <section id="features" className="section bg-light">
       <div className="container">
-        <h2 className="section-title">Quay Món Ăn Ngẫu Nhiên</h2>
+        <h2 className="section-title">Gợi Ý Món Ăn Ngẫu Nhiên</h2>
         <p className="section-subtitle">
-          Không biết hôm nay ăn gì? Hãy để vận may quyết định! Bấm nút và xem món ăn dành cho bạn.
+          Đây là tiện ích phụ của sản phẩm, hỗ trợ sinh viên chọn nhanh một món ăn khi chưa biết nên ăn gì trong ngày.
         </p>
 
         <div className="spinner-wrapper animate-fade-up">

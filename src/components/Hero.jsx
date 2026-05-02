@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPinned, Users, UtensilsCrossed } from 'lucide-react';
 import './Hero.css';
 
 const marqueeImages = [
@@ -20,25 +20,48 @@ const Hero = () => {
         <div className="hero-text animate-fade-up">
           <div className="badge">
             <span className="badge-dot"></span>
-            Được yêu thích bởi 10.000+ sinh viên
+            Bản đồ quán ăn dành riêng cho sinh viên ULIS
           </div>
-          
+
           <h1 className="hero-heading">
-            KHÁM PHÁ THẾ GIỚI<br />ẨM THỰC
-            <span className="text-gradient"> ĐẠI HỌC NGOẠI NGỮ</span>
+            TÌM QUÁN ĂN NHANH
+            <span className="text-gradient"> CÙNG ULIS FOOD MAP</span>
           </h1>
-          
-          <p className="hero-desc">
-            Hàng trăm món ngon đang chờ bạn thưởng thức. Khám phá bản đồ ẩm thực và tìm quán ăn yêu thích ngay!
+
+          <p className="hero-slogan">
+            <strong>Mở bản đồ là biết ăn gì, ở đâu, giá bao nhiêu.</strong>
           </p>
-          
-          <a href="#today-special" className="btn btn-primary btn-hero-cta">
-            Khám phá ngay
-            <ArrowRight size={20} />
-          </a>
+
+          <p className="hero-desc">
+            ULIS Food Map là landing page giới thiệu dịch vụ bản đồ ẩm thực cho sinh viên Đại học Ngoại ngữ. Người dùng có thể xem khu vực quán ăn, mức giá tham khảo, hình ảnh món ăn và gửi đăng ký tham gia đóng góp cho dự án.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#interactive-map" className="btn btn-primary btn-hero-cta">
+              Mở bản đồ ngay
+              <ArrowRight size={20} />
+            </a>
+            <a href="#feedback-form" className="btn btn-outline btn-hero-secondary">
+              Đăng ký tham gia
+            </a>
+          </div>
+
+          <div className="hero-proof-list">
+            <div className="hero-proof-item">
+              <MapPinned size={18} />
+              <span>3 khu vực quán ăn chính</span>
+            </div>
+            <div className="hero-proof-item">
+              <UtensilsCrossed size={18} />
+              <span>Nhiều món ăn phổ biến của sinh viên</span>
+            </div>
+            <div className="hero-proof-item">
+              <Users size={18} />
+              <span>Có đánh giá và khu vực đăng ký góp ý</span>
+            </div>
+          </div>
         </div>
 
-        {/* CỘT PHẢI: MARQUEE HÌNH ẢNH */}
         <div className="hero-images animate-fade-up delay-1">
           <div className="hero-marquee-box">
             <div className="hero-marquee-track">

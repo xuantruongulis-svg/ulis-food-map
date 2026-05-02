@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Header.css';
 
 const Header = () => {
@@ -16,10 +16,11 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Trang chủ', href: '#home' },
-    { name: 'Hôm nay ăn gì', href: '#features' },
-    { name: 'Cộng đồng', href: '#community' },
-    { name: 'Đánh giá', href: '#feedback-form' },
-    { name: 'Về chúng tôi', href: '#about' },
+    { name: 'Giới thiệu', href: '#benefits' },
+    { name: 'Bản đồ', href: '#interactive-map' },
+    { name: 'Hình ảnh', href: '#today-special' },
+    { name: 'Đăng ký', href: '#feedback-form' },
+    { name: 'Liên hệ', href: '#footer-contact' },
   ];
 
   return (
@@ -29,13 +30,16 @@ const Header = () => {
           <div className="logo-circle">
             <img src="/logo.png" alt="ULIS Food Map Logo" className="header-logo" />
           </div>
-          <span className="logo-text">ULIS FOOD MAP</span>
+          <div className="logo-copy">
+            <span className="logo-text">ULIS FOOD MAP</span>
+            <span className="logo-tagline">Mở bản đồ là biết ăn gì</span>
+          </div>
         </a>
 
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="nav-link"
               onClick={() => setMobileMenuOpen(false)}
@@ -43,12 +47,12 @@ const Header = () => {
               {link.name}
             </a>
           ))}
-          <a href="#features" className="btn btn-primary btn-sm nav-btn">
-            Khám phá ngay
+          <a href="#feedback-form" className="btn btn-primary btn-sm nav-btn">
+            Đăng ký tham gia
           </a>
         </nav>
 
-        <button 
+        <button
           className="mobile-menu-btn"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
